@@ -1,0 +1,226 @@
+:root {
+  --bg1: rgb(67, 2, 67);
+  --bg2: rgb(143, 13, 143);
+  --invalid: rgb(167, 39, 39);
+  --valid: rgb(88, 159, 88);
+  --bordercl: rgb(107, 117, 193);
+  --formcl: white;
+  --text: rgb(40, 59, 36);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to right, var(--bg1), var(--bg2));
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 24px;
+}
+.container {
+  width: 450px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: var(--formcl);
+  padding: 30px 36px 32px;
+  margin: 30px auto 0;
+  border-radius: 15px;
+  animation: slideInFromLeft 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+#signup-container,
+#signin-container {
+  width: 100%;
+}
+.signin-msg,
+.signup-msg {
+  margin-top: 35px;
+}
+.subtitle {
+  padding: 4px 0 0 0;
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.field {
+  margin-bottom: 20px;
+}
+label {
+  display: block;
+  padding-bottom: 4px;
+}
+.input-wrap {
+  position: relative;
+}
+.icon {
+  position: absolute;
+  top: 16px;
+  left: 5px;
+}
+.eyeicon {
+  position: absolute;
+  top: 16px;
+  right: 5px;
+  cursor: pointer;
+}
+input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  outline: none;
+  background-color: rgb(251, 239, 239);
+}
+input[type="text"],
+input[type="email"] {
+  padding-left: 25px;
+}
+input[type="text"]::placeholder,
+input[type="email"]::placeholder {
+  font-size: 14px;
+}
+input:focus {
+  background-color: rgb(235, 235, 248);
+  border: 2px solid var(--bordercl);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+.hint {
+  display: block;
+  font-size: 0.8rem;
+  margin-top: 7px;
+  min-height: 1.1em;
+  transition: color 0.2s;
+}
+#signup-password,
+#signin-password #cpassword {
+  padding-right: 30px;
+}
+input.valid {
+  border-color: var(--valid);
+  background: #f0fdf4;
+}
+.valid-text {
+  color: var(--valid);
+}
+.invalid-text {
+  color: var(--invalid);
+}
+input.valid:focus {
+  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.15);
+}
+input.invalid {
+  border-color: var(--invalid);
+  background: #fef2f2;
+}
+input.invalid:focus {
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.15);
+}
+.input-wrap::after {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%) scale(0.6);
+  font-weight: 700;
+  opacity: 0;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+  pointer-events: none;
+}
+.input-wrap:has(
+    input[type="text"]:not([type="password"]).valid,
+    input[type="email"].valid
+  )::after {
+  content: "✓";
+  color: var(--valid);
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+.input-wrap:has(
+    input[type="text"]:not([type="password"]).invalid,
+    input[type="email"].invalid
+  )::after {
+  content: "!";
+  color: var(--invalid);
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+.hidden {
+  display: none;
+}
+.active {
+  display: block;
+}
+button[type="submit"] {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(to right, var(--bg1), var(--bg2));
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    box-shadow 0.2s,
+    opacity 0.2s;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);
+}
+button[type="submit"]:enabled:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(99, 102, 241, 0.45);
+}
+button[type="submit"]:enabled:active {
+  transform: translateY(0);
+}
+button[type="submit"]:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.footer {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+.footer a {
+  color: var(--bg2);
+  font-weight: 600;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+.success {
+  text-align: center;
+  padding: 12px 0 4px;
+}
+.success .check {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: #dcfce7;
+  color: var(--valid);
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+}

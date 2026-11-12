@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live form validation</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=visibility_off"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./main.js" defer></script>
+  </head>
+  <body>
+    <main class="container" id="container">
+      <section class="signup-container" id="signup-container">
+        <h1 class="signup-msg">Create your account</h1>
+        <p class="subtitle">Fill in the details below to get started</p>
+        <form id="signup-form" novalidate>
+          <div class="field">
+            <label for="username">Username</label>
+            <div class="input-wrap">
+              <i
+                class="fa-solid fa-user fa-2xs icon"
+                style="color: rgb(29, 26, 26)"
+              ></i>
+              <input
+                type="text"
+                id="username"
+                placeholder="e.g. john_doe"
+                autocomplete="username"
+              />
+            </div>
+            <small class="hint" id="username-hint"
+              >3-15 characters. Letters, numbers, underscores only.</small
+            >
+          </div>
+          <div class="field">
+            <label for="signup-email">Email address</label>
+            <div class="input-wrap">
+              <i
+                class="fa-solid fa-envelope fa-2xs icon"
+                style="color: rgb(29, 26, 26)"
+              ></i>
+              <input
+                type="email"
+                id="signup-email"
+                placeholder="you@example.com"
+                autocomplete="email"
+              />
+            </div>
+            <small class="hint" id="signupemail-hint"
+              >Please enter a valid email.</small
+            >
+          </div>
+
+          <div class="field">
+            <label for="signup-password">Password</label>
+            <div class="input-wrap">
+              <input
+                type="password"
+                id="signup-password"
+                placeholder="••••••••"
+                autocomplete="new-password"
+              />
+              <i
+                class="fa-regular fa-eye fa-sm eyeicon hidden"
+                id="showsignup-pw"
+                style="color: rgb(29, 26, 26)"
+              ></i>
+              <i
+                class="fa-regular fa-eye-slash fa-sm eyeicon"
+                id="hidesignup-pw"
+                style="color: rgb(29, 26, 26)"
+              ></i>
+            </div>
+            <small class="hint" id="signuppassword-hint"
+              >Min 8 chars with 1 uppercase, 1 number, 1 special char.</small
+            >
+          </div>
+
+          <div class="field">
+            <label for="cpassword">Confirm Password</label>
+            <div class="input-wrap">
+              <input
+                type="password"
+                id="cpassword"
+                placeholder="••••••••"
+                autocomplete="new-password"
+              />
+              <i
+                class="fa-regular fa-eye fa-sm eyeicon hidden"
+                id="showsignup-cpw"
+                style="color: rgb(29, 26, 26)"
+              ></i>
+              <i
+                class="fa-regular fa-eye-slash fa-sm eyeicon"
+                id="hidesignup-cpw"
+                style="color: rgb(29, 26, 26)"
+              ></i>
+            </div>
+            <small class="hint" id="cpassword-hint"></small>
+          </div>
+
+          <button type="submit" id="signup-btn" disabled>Create Account</button>
+        </form>
+        <p class="footer">
+          Already have an account? <a href="#" id="signin-link">Sign in</a>
+        </p>
+      </section>
+      <div class="success hidden" id="success-msg">
+        <div class="check">✓</div>
+        <h1>You're all set!</h1>
+        <p class="subtitle">
+          Your account has been created successfully, you will be redirected to
+          the home page.
+        </p>
+      </div>
+      <section class="signin-container hidden" id="signin-container">
+        <h1 class="signin-msg">Welcome Back</h1>
+        <p class="subtitle">Please log in to continue</p>
+        <form id="signin-form" novalidate>
+          <div class="field">
+            <label for="signin-email">Email address</label>
+            <div class="input-wrap">
+              <i
+                class="fa-solid fa-envelope fa-2xs icon"
+                style="color: rgb(29, 26, 26)"
+              ></i>
+              <input
+                type="email"
+                id="signin-email"
+                placeholder="you@example.com"
+                autocomplete="email"
+              />
+            </div>
+            <small class="hint" id="signinemail-hint"
+              >Enter your valid email.</small
+            >
+          </div>
+          <div class="field">
+            <label for="signin-password">Password</label>
+            <div class="input-wrap">
+              <input
+                type="password"
+                id="signin-password"
+                placeholder="••••••••"
+                autocomplete="new-password"
+              />
+              <i
+                class="fa-regular fa-eye fa-sm eyeicon hidden"
+                id="showsignin-pw"
+                style="color: rgb(29, 26, 26)"
+              ></i>
+              <i
+                class="fa-regular fa-eye-slash fa-sm eyeicon"
+                id="hidesignin-pw"
+                style="color: rgb(29, 26, 26)"
+              ></i>
+            </div>
+            <small class="hint" id="signinpassword-hint"
+              >Enter designated password.</small
+            >
+          </div>
+          <button type="submit" id="signin-btn" disabled>Log in</button>
+        </form>
+        <p class="footer">
+          Don't have an account? <a href="#" id="signup-link">Register</a>
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
